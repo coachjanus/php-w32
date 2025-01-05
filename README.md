@@ -43,4 +43,54 @@ RewriteRule ^(.*)$ index.php?route=$1 [L,QSA
 
 ```
 
+## Routing
+```php
+
+function uri(): string {
+    return trim($_SERVER['REQUEST_URI'], '/');
+}
+
+function home() {
+    echo "<h1>Home page</h1>";
+}
+
+function about() {
+    echo "<h1>About page</h1>";
+}
+
+function contact() {
+    include './contact.php';
+}
+
+function error() {
+    echo "<h1>404: Not found</h1>";
+}
+
+// switch ($route) {uri()
+//     case '/':
+//         echo "<h1>Home page</h1>";
+//         break;
+//     case '/about':
+//         echo "<h1>About page</h1>";
+//         break;
+//     case '/contract':
+//         include './contact.php';
+//         break;
+// }
+
+// $expressionResult = match (uri()) {
+//     '/' => home(),
+//     '/about' => about(),
+//     '/contact' => contact(),
+//     default => error(),
+// };
+
+$expressionResult = match (uri()) {
+    '' => home(),
+    'about' => about(),
+    'contact' => contact(),
+    default => error(),
+};
+```
+
 
