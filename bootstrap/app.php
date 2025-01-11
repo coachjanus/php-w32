@@ -2,32 +2,21 @@
 
 declare(strict_types=1);
 
+require_once dirname(__DIR__)."/app/Core/http/Request.php";
+
 error_reporting(0);
 
 define('ROOT', dirname(__DIR__));
 
-function uri(): string {
-    return trim($_SERVER['REQUEST_URI'], '/');
-}
+// function uri(): string {
+//     return trim($_SERVER['REQUEST_URI'], '/');
+// }
 
-function home() {
-    include ROOT.'/app/Controllers/HomeController.php';
-}
-
-function about() {
-    include ROOT.'/app/Controllers/AboutController.php';
-    // echo "<h1>About page</h1>";
-}
-
-function contact() {
-    include ROOT.'/app/Controllers/ContactController.php';
-    // include './contact.php';
-}
-
-function error() {
-    include ROOT.'/app/Controllers/ErrorController.php';
-    // echo "<h1>404: Not found</h1>";
-}
+// function home() {
+//     include ROOT.'/app/Controllers/HomeController.php';
+//     $homeController = new HomeController();
+//     var_dump($homeController);
+// }
 
 function boot() {
     date_default_timezone_set(getenv('APP_TIMEZONE') ? : 'UTC');
@@ -51,7 +40,7 @@ function render($view, $context = []) {
     $content = load($view, $context);
     require_once dirname(__DIR__)."/views/layouts/app.php";
 
-    echo str_replace("{{ content }}", $content, ob_get_clean());
+    return str_replace("{{ content }}", $content, ob_get_clean());
 }
 
 function load($view, $context) {
@@ -65,9 +54,35 @@ function load($view, $context) {
     return ob_get_clean();
 }
 
-$route = match (uri()) {
-    '' => home(),
-    'about' => about(),
-    'contact' => contact(),
-    default => error(),
-};
+
+$request = Request::uri();
+
+$routes = require_once dirname(__DIR__)."/config/routes.php";
+
+// foreach ($routes as $route) {
+//     echo "$request => $route";
+//     if (array_key_exists($request, $route)){
+//         echo "$request => $route";
+//     }
+    
+// }
+
+if (array_key_exists($request, $routes)){
+    // echo "$request => $routes[$request]";
+    $segments = $routes[$request];
+
+    [$controllerClass, $action] = explode("@", $segments);
+
+
+    // $controllerClass = $routes[$request];
+
+
+    include_once dirname(__DIR__)."/app/Controllers/$controllerClass.php";
+    $controller = new $controllerClass();
+    // $controller->index();
+    $controller->$action();
+    // var_dump($controller) ; 
+} else {
+    require_once dirname(__DIR__)."/app/Controllers/ErrorController.php";
+    new ErrorController();
+}
