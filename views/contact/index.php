@@ -1,5 +1,31 @@
-<?php
 
-echo "<h1>Contact page</h1>";
+<h1><?= $title ?></h1>
 
-echo "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum assumenda molestiae nulla harum soluta dolorum magni laborum tenetur neque dolore commodi, libero quisquam consequatur sapiente adipisci perspiciatis. Fugit, ullam magnam?";
+<dl>
+<?php foreach ($messages as $iten):?>
+    <dt>
+        <dd>
+            <?=$iten->first_name?>&nbsp;<?=$iten->last_name?>
+        </dd>
+        <dd>
+            <?=$iten->message?>
+        </dd>
+    </dt>
+
+    
+<?php endforeach?>
+<form action="" method="post">
+
+<label for="">First name</label>
+<input type="text" name="first_name">
+<label for="">Last name</label>
+<input type="text" name="last_name">
+<label for="">Email</label>
+<input type="email" name="email">
+<label for="">Message</label>
+<textarea name="message" id=""></textarea>
+<input type="submit">
+</form>
+
+
+</dl>
