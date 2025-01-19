@@ -1,0 +1,97 @@
+/* card.css */
+
+.card {
+  background:#fff;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius:4px;
+  display:flex;
+  flex-flow:column;
+  min-width:0;
+  overflow:hidden;
+  padding:.5em;
+  position:relative;
+  transition:flex-grow .5s;
+  
+    & .card-figure {
+      width:100%;
+      min-width:0;
+      margin-bottom:1em;
+    }
+    & .card-body {
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        & .card-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 0 0 calc(.75em / 1.4);
+        }
+    }
+}
+
+@container (min-width: 384px) {
+      .card {
+        flex-flow:row
+      }
+      .card-figure {
+        border-right:1px solid #eee;
+
+        margin-right:.5em;
+        margin-bottom:0;
+        min-width:0;
+        padding-right:.5em;
+      }
+      .card-body {
+        min-width:0;
+      }
+}
+  
+@media (min-width: 490px) {
+    .card {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+}
+
+.product .image.badge::before {
+  font-size:.8em;
+  -webkit-font-smoothing:initial;
+  font-weight:700;
+  position:absolute;
+  right:-3.1em;
+  text-align:center;
+  top:-1.2em;
+  transform:rotate(45deg);
+  transform-origin:0 0;
+  width:6em;
+  z-index:10
+}
+
+.product .image.badge.badge-new::before {
+  background-color:#40bf80;
+  color:#fff;
+  content:"New";
+  
+}
+
+.product .image.badge.badge-sale::before {
+  background-color:red;
+  color:#fff;
+  content:"Sale";
+}
+.product .image.badge.badge-sold::before {
+  background-color:rgb(172, 8, 205);
+  color:#fff;
+  content:"Sold";
+}
+
+.product-meta {
+  display: flex;
+  justify-self: center;
+  justify-content: space-between !important;
+}
+
+.product-meta .price::before {
+  content:"$";
+}

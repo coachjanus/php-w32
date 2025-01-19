@@ -1,31 +1,28 @@
 <?php
-declare(strict_types=1);
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Core\Http\{Response, BaseController};
 
-
-class HomeController extends BaseController
+class Dashboard extends BaseController
 {
+    protected string $layout = "admin";
+
     public $title;
     protected Response $response;
-
-    protected string $layout = "app";
 
     public function __construct() {
         parent::__construct();
     }
 
     public function index(){
-        $this->title = "Welcome to Home page";
+        $this->title = "Welcome to Admin dashboard";
 
-        $body = $this->view()->render('home/index', ['title' => $this->title]);
+        $body = $this->view()->render('admin/index', ['title' => $this->title]);
         
         $this->response = new Response($body);
         $this->response->send();
     }
-    
+
+
 }
-
-

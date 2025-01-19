@@ -1,0 +1,61 @@
+#login {
+    z-index: 10;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  background: transparent;
+  color: #000;
+
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 24px;
+  border: grey 1px solid;
+
+  transition: all 0.5s ease-out;
+  z-index: 10;
+}
+
+.close:hover {
+  background: var(--accentColor);
+  border-color: var(--accentColor);
+  color: #fff;
+  transition: all 0.5s ease-out;
+}
+
+/* dialog::backdrop {
+ background: repeating-linear-gradient(
+   45deg,
+   rgba(0, 0, 0, 0.2),
+   rgba(0, 0, 0, 0.2) 1px,
+   rgba(0, 0, 0, 0.3) 1px,
+   rgba(0, 0, 0, 0.3) 20px
+ );
+} */
+
+
+/* @media (max-width: 45rem) {
+    .login-container {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+}  */

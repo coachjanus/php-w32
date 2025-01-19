@@ -1,0 +1,17 @@
+/* main css */
+/*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />*/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+@import url('base.css');
+@import url('app.css');
+@import url('nav.css');
+@import url('button.css');
+@import url('footer.css');
+@import url('img.css');
+@import url('card.css');
+@import url('cart.css');
+@import url('form.css');
+@import url('contact.css');
+@import url('carousel.css');
+@import url('auth.css');
+@import url('blog.css');

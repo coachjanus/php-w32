@@ -1,0 +1,97 @@
+.footer {
+    width: 100%;
+    background-color: var(--appNavBgColor);
+    color: var(--appNavColor);
+    line-height: 1.5;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--appNavColor);
+}
+
+.footer-title {
+    color: #fff;
+}
+
+.footer-main {
+    padding: 1.25rem 1.875rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 29.8125rem /* 477px */) {
+    .footer-main {
+      justify-content: space-evenly;
+    }
+  }
+
+.footer-main-item {
+    padding: 1.25rem;
+    min-width: 12.5rem;
+}
+
+/* Footer social */
+.footer-social {
+    padding: 0 1.875rem 1.25rem;
+}
+  
+.footer-social-list {
+    display: flex;
+    justify-content: center;
+    border-top: 1px #777 solid;
+    padding-top: 1.25rem;
+}
+  
+.footer-social-list a {
+    margin: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.footer-social-list a:hover {
+    color: var(--accentColor);
+}
+
+
+/* Footer legal */
+.footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+@media (min-width: 29.8125rem) {
+    .footer-legal {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* Footer main | Newsletter form */
+footer form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer input[type="email"] {
+    border: 0;
+    padding: 0.625rem;
+    margin-top: 0.3125rem;
+}
+
+dialog input[type="submit"], footer input[type="submit"] {
+    background-color: var(--accentColor);
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    padding: 0.625rem 0.9375rem;
+    margin-top: 0.3125rem;
+}

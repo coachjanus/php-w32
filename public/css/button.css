@@ -1,0 +1,131 @@
+.icon-button {
+    background-color: hsla(0, 0%, 0%, 0);
+    border: 0;
+    border-radius: 50%;
+    color: inherit;
+    contain: layout style;
+    cursor: pointer;
+    display: flex;
+    margin: -0.5em;
+    padding: 0.5em;
+    transition: background-color 0.3s var(--material-easing);
+  }
+  
+  .icon-button:hover,
+  .icon-button:focus {
+    background-color: hsla(0, 0%, 0%, 0.1);
+    outline: 0;
+  }
+  
+  .icon {
+    contain: strict;
+    display: inherit;
+    fill: currentColor;
+    height: 1.5em;
+    min-width: 1.5em;
+    width: 1.5em;
+  }
+  
+  .icon--inline:not(:last-child) {
+    margin-right: 0.667em;
+  }
+  
+
+  .btn {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    display: inline-block;
+  }
+
+  .btn-hero {
+    color: white;
+    border: 0;
+    cursor: pointer;
+    padding: .5em 1.25em;
+    background: linear-gradient(90deg, #ee6352, var(--accentColorMuted), #ee6352);
+    background-size: 300%;
+    background-position: left;
+    transition: background-position 350ms;
+  }
+
+  .btn-hero:hover {
+    background-position: right;
+  }
+
+  .button {
+    background: hsla(0, 0%, 0%, 0.1);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 100%;
+    opacity: 1;
+    padding: .4em 1em;
+    text-decoration: none!important;
+    transition:
+      background 0.2s var(--material-easing),
+      opacity 0.2s var(--material-easing);
+    white-space: nowrap;
+  }
+  
+  .button-wrapper {
+    display: flex;
+  }
+  
+  .button-text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .button:hover,
+  .button:focus {
+    background: hsla(0, 0%, 0%, 0.2);
+  }
+  .button--action {
+    background: var(--accentColor);
+    color: #fff;
+  }
+  
+  .button--action:hover,
+  .button--action:focus {
+    background: var(--accentColorMuted);
+  }
+   
+  .button--small {
+    font-size: 0.85em;
+  }
+  
+  .button--cozy {
+    padding: .333em .666em;
+  }
+  
+
+  .icon-actions {
+    display: flex;
+    flex-flow: row wrap;
+    font-size: 0.8em;
+    padding: 1rem 0;
+  }
+  
+  .icon-actions > .icon {
+    color: #aaa;
+    transition: color 0.2s var(--material-easing);
+  }
+  
+  .icon-actions > .icon:hover {
+    color: #444;
+  }
+  

@@ -1,0 +1,93 @@
+/* base.css */
+
+html {
+    --gutter: 1.5em;
+    --heroColor: hsl(300, 80%, 80%);
+    --accentColor: hsl(300, 50%, 50%);
+    --accentColorMuted: hsl(300, 40%, 40%);
+    --appNavBgColor: hsl(0, 0%, 23%);
+    --appNavColor: hsl(0, 0%, 80%);
+    --material-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+body {
+    box-sizing: border-box;
+    color: hsl(0, 0%, 25%);
+    font-size: clamp(.75rem, .85rem, 1rem);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    list-style: 1.3;
+   
+    -webkit-font-smoothing: antialiased;
+    margin:0;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
+a {
+    color: var(--accentColorMuted);
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: calc(1.3rem + 1vw);
+}
+
+h2 {
+    font-size:1.2em;
+    font-weight:500;
+    margin-bottom:1em;
+    padding-bottom:.3em;
+    border-bottom:1px solid rgba(0,0,0,.075)
+}
+
+h3 {
+    font-size: calc(1.1rem + 0.5vw);
+    font-weight:500;
+    margin:1em 0
+}
+
+ul {
+    margin: 0 0 1em;
+    max-width: 48em;
+    padding-left: 1.2em;
+}
+strong {
+    font-weight: 600;
+}
+  
+em {
+    font-style: italic;
+}
+
+[tabindex="-1"] {
+    outline: none;
+}
+
+.responsive-container {
+    container-type:inline-size;
+    overflow:hidden;
+    position:relative;
+    display:block;
+    margin-top: 1rem;
+}
+
+.divider-container {
+    text-align: right;
+}
+
+.px-4 {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+.py-5 {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+    

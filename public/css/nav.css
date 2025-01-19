@@ -1,0 +1,37 @@
+.nav {
+    min-width: 16em;
+}
+  
+.nav-item {
+    list-style: none;
+    margin: 0;
+}
+  
+.nav-link {
+    background-color: transparent;
+    color: inherit;
+    height: 3.25rem;
+    padding: 0 var(--gutter);
+    text-decoration: none;
+    transition: background-color 0.2s var(--material-easing);
+}
+
+.nav {
+    min-width: 16em;
+    & li {
+        list-style: none;
+        & a {
+            background-color: transparent;
+            color: inherit;
+            height: 3.25rem;
+            text-decoration: none;
+        }
+    }
+}
+
+
+.nav-link:hover {
+    background-color: hsla(0, 0%, 100%, 0.05);
+    text-decoration: none;
+}
+  

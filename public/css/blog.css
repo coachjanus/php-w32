@@ -1,0 +1,39 @@
+.blog-post {
+    background:#fff;
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:4px;
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+}
+
+.post-figure img {
+    max-width: 100%;
+    object-fit: cover;
+}
+.post-title {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin: 1em 0 calc(.75em / 1.4);
+}
+
+.blog-post .meta {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #2980b9;
+}

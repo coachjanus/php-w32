@@ -1,0 +1,256 @@
+/* app.css */
+
+.app {
+    position:relative;
+    min-height:100vh;
+}
+
+@media (min-width: 768px) {
+    .app {
+      display: flex;
+      position: static;
+    }
+}
+
+/**
+ * .App-nav
+ * ---------------------------------------------------------------------- \\
+ */
+.app-nav {
+  background:#3b3b3b;
+  contain:strict;
+  color:#ccc;
+  width:16em
+}
+
+.app-nav__hide {
+  display:flex;
+  box-shadow:none;
+  bottom:0;
+  display:none;
+  left:-16em;
+  position:absolute;
+  top:0;
+  transform:translate3d(0%, 0, 0);
+}
+
+@media(max-width: calc(768px - 1px)) {
+  .app-nav {
+    box-shadow:none;
+    bottom:0;
+    display:none;
+    left:-16em;
+    position:absolute;
+    top:0;
+    transform:translate3d(0%, 0, 0);
+    z-index:101
+  }
+
+}
+
+.app-nav__show {
+  transform:translate3d(0%, 0, 0)!important;
+  display:block!important;
+  width:16em!important;
+  left:0!important;
+}
+
+@media(min-width: 768px) {
+  .app-nav {
+    background:#3b3b3b linear-gradient(to left, hsla(0, 0%, 0%, 0.07), transparent 0.5em);
+    width:16em;
+    flex:0 0 auto;
+    overflow:hidden;
+    position:static;
+    will-change:width
+  }
+
+}
+  
+  
+.app-nav-header {
+  align-self:stretch;
+  align-items:center;
+  border-top:1px solid #000;
+  border-bottom:1px solid rgba(255,255,255,.075);
+  color:rgba(255,255,255,.85);
+  contain:strict;
+  display:flex;
+  justify-content:space-between;
+  padding:0 var(--gutter);
+  height:5em
+  }
+
+  .app-nav-header--title {
+    font-size:.9em;
+    font-weight:600;
+    letter-spacing:.25em;
+    text-transform:uppercase
+  }
+  .category-title {
+    font-size:.9em;
+    font-weight:600;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    padding-left: 1rem;
+  }
+
+.app-nav-show {
+    color:#999;
+    display:flex;
+    width:2.6em;
+}
+
+.hamburger {
+  display: flex !important;
+  opacity:1 !important;
+}
+
+@media(min-width: 768px) {
+    .app-nav-show {
+      align-items:center;
+      display:none;
+      height:100%;
+      opacity:0;
+      position:absolute;
+      top:0
+    }
+  }
+
+ /**
+ * .App-main
+ * -------------------------------------------------------------------- \\
+ */
+.app-main {
+    contain: content;
+    background: hsl(0, 0%, 96%);
+}
+
+@media(min-width: 768px) {
+  .app-main {
+    display:flex;
+    flex:1 1 0%;
+    flex-flow:column;
+    min-width:0
+  }
+}
+
+@media(min-width: 768px) {
+  .app-main-content {
+    contain:content;
+    display:flex;
+    flex:1 0 auto
+  }
+}
+
+/**
+ * .App-mainHeader
+ * ---------------------------------------------------------------------- \\
+ */
+.app-main-header {
+  align-items:center;
+  background:#fff;
+  border-top:1px solid var(--accentColor);
+  border-bottom:1px solid rgba(0,0,0,.075);
+  contain:strict;
+  display:flex;
+  height:5em;
+  padding:0 var(--gutter)
+}
+
+@media(min-width: 768px) {
+  .app-main-header {
+    position:relative
+  }
+}
+
+.app-main-header-link {
+    color:inherit;
+    margin-left:1.25em;
+    text-decoration: none;
+}
+
+@media(min-width: 960px) {
+  .app-main-header-link {
+    font-size:.85em;
+    margin-left:.75em
+  }
+}
+
+.app-main-header-link:first-child {
+  margin-left:0
+}
+
+.app-main-header-links {
+    align-items:center;
+    display:flex;
+}
+
+@media(min-width: 768px) {
+  .app-main-header-links {
+    transform:translate3d(0em, 0, 0)
+  }
+
+}
+
+
+/**
+ * .App-mainHeaderTitle
+ * ---------------------------------------------------------------------- \\
+ */
+.app-main-header-title {
+  color:#999;
+  flex:1;
+  font-weight:700;
+  letter-spacing:.1em;
+  margin:0 1em;
+
+  max-width:100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  text-transform:uppercase;
+  white-space:nowrap;
+  word-spacing:.2em
+}
+
+@media(min-width: 768px) {
+  .app-main-header-title {
+    word-spacing:.2em;
+    transform:translate3d(0, 0, 0)
+  }
+
+}
+/**
+ * .App-mainHeaderTitleEmphasis
+ * ---------------------------------------------------------------------- \\
+ */
+.app-main-header-title--emphasis {
+    color: var(--accentColor);
+    font-style: normal;
+    margin-right: .2em;
+}
+
+
+.app-content {
+    contain:content;
+    padding:var(--gutter)
+}
+
+@media(min-width: 768px) {
+  .app-content {
+    flex:1 1 0%;
+    min-width:16em
+  }
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+}
+
+.row-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

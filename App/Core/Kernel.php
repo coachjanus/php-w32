@@ -29,5 +29,9 @@ class Kernel
         require_once dirname(__DIR__, 2)."/config/routes.php";
         $router->resolve();
     }
+
+    public static function projectDir() {
+        return dirname(__DIR__, 2);
+    }
     
 }
