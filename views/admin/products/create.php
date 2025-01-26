@@ -53,7 +53,7 @@
         <div class="col-sm-6">
             <div class="mb-3">
                 <label for="badge" class="form-label">Products Badge</label>
-                <select class="form-select" id="badge" required name="badge_id">
+                <select class="form-select" id="badge" name="badge_id">
                     <option value="">Choose...</option>
                     <?php foreach($badges as $badge):?>
                         <option value="<?=$badge->id?>"><?=$badge->title?></option>

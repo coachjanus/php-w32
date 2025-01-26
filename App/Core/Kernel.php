@@ -4,9 +4,11 @@ declare(strict_types=1);
 namespace App\Core;
 
 use App\Core\Router;
+use App\Core\Http\Request;
 
 class Kernel
 {
+    private Request $request;
     public function __construct(private  $enviroment) {
 
         error_reporting(0);
@@ -17,6 +19,7 @@ class Kernel
         }
 
         $this->boot();
+        $this->request = new Request();
 
     }
 
@@ -25,7 +28,7 @@ class Kernel
     }
 
     public function run() {
-        $router = new Router();
+        $router = new Router($this->request);
         require_once dirname(__DIR__, 2)."/config/routes.php";
         $router->resolve();
     }

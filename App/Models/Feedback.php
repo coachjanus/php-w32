@@ -4,6 +4,6 @@ namespace App\Models;
 
 use App\Core\Database\QueryBuilder;
 
-class Brand extends QueryBuilder
+class Feedback extends QueryBuilder
 {
 }

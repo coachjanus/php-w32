@@ -68,19 +68,19 @@
   z-index:10
 }
 
-.product .image.badge.badge-new::before {
+.product .image.badge.badge-New::before {
   background-color:#40bf80;
   color:#fff;
   content:"New";
   
 }
 
-.product .image.badge.badge-sale::before {
+.product .image.badge.badge-Sale::before {
   background-color:red;
   color:#fff;
   content:"Sale";
 }
-.product .image.badge.badge-sold::before {
+.product .image.badge.badge-Sold::before {
   background-color:rgb(172, 8, 205);
   color:#fff;
   content:"Sold";

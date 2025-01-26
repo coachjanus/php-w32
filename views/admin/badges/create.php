@@ -1,4 +1,5 @@
 <h1><?=$title?></h1>
+
 <form method="POST" action="/admin/badges/store">
 <div class="mb-3">
   <label for="title" class="form-label">Badge title</label>

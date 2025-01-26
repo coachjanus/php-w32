@@ -78,8 +78,9 @@ function main() {
     initNav();
 
     
-    const url = "http://dev.loc";
-    // const url = "http://localhost:8000";
+    // const url = "http://dev.loc";
+    const url = "http://localhost:8000";
+    
     function signIn() {
         const loginComponent = document.querySelector('login-component');
         const shadowRoot = loginComponent.shadowRoot; 

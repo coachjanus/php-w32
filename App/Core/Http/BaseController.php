@@ -19,4 +19,9 @@ class BaseController
     protected function view() {
         return $this->view;
     }
+
+    public function redirect($location) {
+        header("Location: http://".$_SERVER['HTTP_HOST'].$location);
+        exit();
+    }
 }

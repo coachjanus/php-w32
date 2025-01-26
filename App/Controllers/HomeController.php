@@ -8,24 +8,20 @@ use App\Core\Http\{Response, BaseController};
 
 class HomeController extends BaseController
 {
-    public $title;
-    protected Response $response;
-
+    protected $response;
     protected string $layout = "app";
-
-    public function __construct() {
+    
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function index(){
-        $this->title = "Welcome to Home page";
+    public function index()
+    {
+        $title = "Welcome to Home Page!";
+        $content = $this->view()->render('home/index', compact("title"));
 
-        $body = $this->view()->render('home/index', ['title' => $this->title]);
-        
-        $this->response = new Response($body);
+        $this->response = new Response($content);
         $this->response->send();
     }
-    
 }
-
-
