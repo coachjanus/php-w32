@@ -1,17 +1,19 @@
 <?php
 
-namespace Controllers;
+namespace App\Controllers;
 
-use Core\Http\{BaseController, Request};
-use Models\User;
-use Core\{Rule, Validator};
-use Core\Traits\Helpers;
+use App\Core\Http\{BaseController, Request, Response};
+use App\Models\User;
+// use Core\{Rule, Validator};
+use App\Core\Traits\Helpers;
 
 class RegisterController extends BaseController
 {
     use Helpers;
     protected string $layout = "auth";
     protected $model;
+    private Response $response;
+
 
     public function __construct(private Request $request)
     {
@@ -23,7 +25,9 @@ class RegisterController extends BaseController
     public function index()
     {
         $title = "Please sign up";
-        return $this->view()->render(view: 'auth/register', context: compact('title'));
+        $content = $this->view()->render(view: 'auth/register', context: compact('title'));
+        $this->response = new Response($content);
+        $this->response->send();
     }
 
     private function checkEmail(string $email)
@@ -70,7 +74,7 @@ class RegisterController extends BaseController
             'status' => 1,
             'password' => $password,
         ]);
-        $this->redirect('/login');
+        return $this->redirect('/login');
 
         
         // $this->user->name = $username;

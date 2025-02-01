@@ -5,6 +5,6 @@ use App\Core\Database\QueryBuilder;
 
 class Role extends QueryBuilder {
 
-  protected static $tableName = 'roles';
+  protected $tableName = 'roles';
   
 }

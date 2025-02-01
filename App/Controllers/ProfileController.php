@@ -1,47 +1,56 @@
 <?php
-namespace Controllers;
+namespace App\Controllers;
 
 // use Core\Interfaces\AuthInterface;
-use Core\Http\{BaseController, Request};
-use Core\{Session};
-use Models\{User};
+use App\Core\Http\{BaseController, Request, Response};
+use App\Core\{Session};
+use App\Models\{User};
 
 class ProfileController extends BaseController //implements AuthInterface
 {
 
     protected string $layout = 'app';    
 
+
     protected $model;
+    private Response $response;
+    private User $user;
 
     public function __construct(private Request $request){
         parent::__construct();
         $this->request = $request;
         $this->model = new User();
+        $this->isGranted();
 
-        $userId = Session::instance()->get('userId');
-
-        // if($userId) {
-        //     $this->user = (new User)->first($userId);
-        // } 
-
-        // $this->isGranted();
     }
 
 
-    public function isGranted(string $name = 'customer'):bool
+    public function isGranted()
     {
-        if (!$this->user) {
-            $this->redirect('/login');
+        $userId = Session::instance()->get('userId');
+        if (!$userId) {
+            return $this->redirect('/login');
         }
         return true;
     }
 
     public function index()
     {
-        $title = 'Profile';
-        // $user = $this->user;
+        $title = 'Wellcome back';
+
+        $userId = Session::instance()->get('userId');
+
+        if($userId) {
+            $user = $this->model->get($userId);
+            // var_export($user);
+        } 
+
         
-        return $this->view()->render(view: 'auth/login', context: compact('title'));
+        $content = $this->view()->render(view: 'profile/index', context: compact('title', 'user'));
+
+
+        $this->response = new Response($content);
+        $this->response->send();
     }
 
 

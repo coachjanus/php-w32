@@ -2,7 +2,7 @@
 
 $host = '127.0.0.1';
 $user = 'root';
-$password = 'password';
+$password = '[password]';
 $database = 'shopaholic';
 
 $link = mysqli_connect(
@@ -13,16 +13,22 @@ $link = mysqli_connect(
 );
 
 
-$sql = <<<SQL
-  DROP TABLE IF EXISTS roles;
-  CREATE TABLE roles (
-    id int(11) unsigned NOT NULL AUTO_INCREMENT,
-    name varchar(20) NOT NULL,
-    PRIMARY KEY (id)
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-SQL;
+// $sql = <<<SQL
+//   DROP TABLE IF EXISTS roles;
+//   CREATE TABLE roles (
+//     id int(11) unsigned NOT NULL AUTO_INCREMENT,
+//     name varchar(20) NOT NULL,
+//     PRIMARY KEY (id)
+//   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+// SQL;
+
+// if(mysqli_multi_query($link, $sql)){
+//   echo "Table created successfully.";
+// } else{  echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);}
+
+$sql = "INSERT INTO roles (name) Values ('admin'), ('customer'),('manager')";
  
-if(mysqli_multi_query($link, $sql)){
-    echo "Table created successfully.";
+if(mysqli_query($link, $sql)){
+    echo "Insert successfully.";
 } else{  echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);}
 

@@ -118,6 +118,13 @@ class QueryBuilder
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
+    public function findBy($condition) {
+        $sql = "SELECT * FROM {$this->tableName} WHERE $condition";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
     public function update($parameters)   {
         $id = $parameters['id'];
         if (isset($parameters['id'])) unset($parameters['id']);

@@ -1,7 +1,7 @@
 <?php
 $host = '127.0.0.1';
 $user = 'root';
-$password = 'password';
+$password = '[password]';
 $database = 'shopaholic';
 
 $link = mysqli_connect(
@@ -18,7 +18,7 @@ $sql = <<<SQL
     name varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
     password varchar(100) NOT NULL,
-    role_id int(11) unsigned NOT NULL DEFAULT 1,
+    role_id int(11) unsigned NOT NULL DEFAULT 2,
     first_name varchar(50) NULL,
     last_name varchar(50) NULL,
     phone_number varchar(50) NULL,

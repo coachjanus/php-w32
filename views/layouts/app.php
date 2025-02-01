@@ -85,11 +85,25 @@
             <span class="icon-button fa-solid fa-cart-shopping"> 
             (<span id="total-in-cart">0</span>)</span>
           </a>
-          <a href="#!" class="sign-in app-main-header-link">
+          <?php if (App\Core\Session::instance()->get('userId')):?>
+            <a href="/profile" class="app-main-header-link">
+              <span class="icon-button">
+                <i class="fas fa-address-card"></i>
+              </span>
+            </a>
+            <a href="/logout" class="app-main-header-link">
+              <span class="icon-button">
+                <i class="fas fa-sign-out-alt"></i>
+              </span>
+            </a>
+          <?php else:?>
+            <a href="/login" class="sign-in app-main-header-link">
             <span class="icon-button">
               <i class="fa-solid fa-user"></i>
             </span>
           </a>
+          <?php endif;?>
+          
         </nav>
                
       </header>

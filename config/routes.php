@@ -1,10 +1,9 @@
 <?php
-use App\Controllers\AboutController;
-use App\Controllers\Admin\{BrandController, CategoryController, SectionController, ProductController, BadgeController};
 
-use App\Controllers\HomeController;
-use App\Controllers\ContactController;
-use App\Controllers\Admin\Dashboard;
+use App\Controllers\{HomeController, RegisterController, ContactController, AboutController, LoginController, ProfileController};
+
+use App\Controllers\Admin\{BrandController, CategoryController, SectionController, ProductController, BadgeController, Dashboard};
+
 use App\Controllers\Api\ApiController;
 
 $router->get('', [HomeController::class, 'index']);
@@ -59,5 +58,13 @@ $router->post('admin/badges/update', [BadgeController::class, 'update']);
 $router->post('admin/badges/destroy/{id}', [BadgeController::class, 'destroy']);
 
 
+
+$router->get('register', [RegisterController::class, 'index']);
+$router->post('signup', [RegisterController::class, 'signup']);
+
+$router->get('login', [LoginController::class, 'index']);
+$router->post('signin', [LoginController::class, 'signin']);
+$router->get('profile', [ProfileController::class, 'index']);
+$router->get('logout', [LoginController::class, 'logout']);
 
 $router->get('api/products', [ApiController::class, 'getProducts']);
