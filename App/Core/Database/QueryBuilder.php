@@ -73,6 +73,7 @@ class QueryBuilder
     public function all() 
     {
         $statement = $this->pdo->prepare($this->query());
+        // var_export($statement);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }

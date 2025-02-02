@@ -1,10 +1,10 @@
 <?php
-namespace Controllers;
+namespace App\Controllers;
 
-use Core\Http\{BaseController, Request,Response};
+use App\Core\Http\{BaseController, Request, Response};
 // use Core\Interfaces\AuthInterface;
-use Core\{Session};
-use Models\{User, Order};
+use App\Core\{Session};
+use App\Models\{User, Order};
 
 class CartController extends BaseController //implements AuthInterface
 {
@@ -12,34 +12,35 @@ class CartController extends BaseController //implements AuthInterface
     protected $model;
     protected User $user;
     protected $userId;
+    private Response $response;
 
     public function __construct(private Request $request)
     {
         parent::__construct();
         $this->request = $request;
         $this->model = new Order();
-
         $this->userId = Session::instance()->get('userId');
         
-        if($this->userId) {
-            $this->user = (new User)->get($this->userId);
-        } 
-
-        // $this->isGranted();
     }
 
-    public function isGranted(string $name = 'customer'):bool
+    public function isGranted():bool
     {
-        if (!$this->user) {
+        $this->userId = Session::instance()->get('userId');
+        
+        if(!$this->userId) {
             $this->redirect('/login');
-        }
+        } 
         return true;
     }
 
     public function index()
     {
+        $this->isGranted();
         $title = "Cart page";
-        return (new Response($this->view()->render(view: 'cart', context: compact(var_name: 'title'))))->send();
+        $content = $this->view()->render(view: 'shop/cart', context: compact(var_name: 'title'));
+
+        $this->response = new Response($content);
+        $this->response->send();
     }
 
     public function auth()
@@ -53,9 +54,7 @@ class CartController extends BaseController //implements AuthInterface
 
     public function checkout()
     {
-        if (!$this->user) {
-            $this->redirect('/login');
-        }
+        $this->isGranted();
 
         // if (!$this->request->method() != 'POST') {
         //     throw new \Exception("Only POST requests are allowed!");
@@ -82,10 +81,16 @@ class CartController extends BaseController //implements AuthInterface
         try {
             // $sql = "INSERT INTO orders (user_id, products) VALUES (?, ?)";
             // $result = $this->model->insert($sql, [$this->user->id, $productsInCart]);
+            $this->model = new Order();
             $result = $this->model->insert([
                 'user_id' => $this->userId, 
                 'products' => $productsInCart, 
             ]);
+
+            var_export($result);
+
+
+
 
             $options = [
                 'error' => false,
@@ -101,5 +106,16 @@ class CartController extends BaseController //implements AuthInterface
             ];
             echo json_encode($options);
         }
+    }
+
+    public function orders() {
+        $orders = $this->model->where("user_id=$this->userId")->all();
+
+        $title = "My orders";
+        $content = $this->view()->render(view: 'profile/orders', context: compact( 'title', 'orders'));
+
+        $this->response = new Response($content);
+        $this->response->send();
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Controllers\{HomeController, RegisterController, ContactController, AboutController, LoginController, ProfileController};
+use App\Controllers\{HomeController, RegisterController, ContactController, AboutController, LoginController, ProfileController, CartController};
 
 use App\Controllers\Admin\{BrandController, CategoryController, SectionController, ProductController, BadgeController, Dashboard};
 
@@ -68,3 +68,7 @@ $router->get('profile', [ProfileController::class, 'index']);
 $router->get('logout', [LoginController::class, 'logout']);
 
 $router->get('api/products', [ApiController::class, 'getProducts']);
+
+$router->get('cart', [CartController::class, 'index']);
+$router->post('api/checkout', [CartController::class, 'checkout']);
+$router->get('orders', [CartController::class, 'orders']);

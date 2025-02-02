@@ -1,8 +1,8 @@
 <?php
 
-namespace Models;
+namespace App\Models;
 
-use Core\Database\QueryBuilder;
+use App\Core\Database\QueryBuilder;
  
 class Order extends QueryBuilder {
     protected $tableName = 'orders';

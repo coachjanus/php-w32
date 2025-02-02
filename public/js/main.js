@@ -92,7 +92,7 @@ function main() {
         })
         // console.log(login)
     }
-    signIn()
+    // signIn()
 
     
 
@@ -218,15 +218,16 @@ function main() {
                         id:parseInt(item.id),
                         amount: parseInt(item.amount)
                     });
-                    console.log(inCart);
+                    // console.log(inCart);
                 });
 
-                console.log(inCart);
+                // console.log(inCart);
 
-                console.log(JSON.stringify({
-                    cart: inCart
-                }));
-                fetch("api/checkout", {
+                // console.log(JSON.stringify({
+                //     cart: inCart
+                // }));
+
+                fetch(`${url}/api/checkout`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -237,7 +238,7 @@ function main() {
                 })
                 .then(
                     response => {
-                        console.log(response);
+                        // console.log(response);
                         Store.clear();
                         document.location.replace("/profile");
                     }
